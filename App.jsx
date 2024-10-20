@@ -17,32 +17,34 @@ const App = () => {
     <NavigationContainer>
       <Tab.Navigator screenOptions={{
         headerShown:false,
+        tabBarShowLabel:false,
+        tabBarActiveTintColor: '#E96E6E',
       }}>
         <Tab.Screen name="Home" component={HomeScreen} options={{
-          tabBarIcon: () => {
+          tabBarIcon: ({size, focused, color}) => {
             return(
-              <EntypoIcon name={'home'} size={25} color={'#000000'} />
+              <EntypoIcon name={'home'} size={size} color={color} />
             );
           },
         }}/>
         <Tab.Screen name="Reorder" component={ReorderScreen} options={{
-          tabBarIcon: () => {
+          tabBarIcon: ({size, focused, color}) => {
             return(
-              <FontAwesomeIcon name={'reorder'} size={25} color={'#000000'} />
+              <FontAwesomeIcon name={'reorder'} size={size} color={color} />
             );
           },
         }}/>
         <Tab.Screen name="Cart" component={CartScreen} options={{
-          tabBarIcon: () => {
+          tabBarIcon: ({size, focused, color}) => {
             return (
-              <EntypoIcon name={'shopping-cart'} size={25} color={'#000000'} />
+              <EntypoIcon name={'shopping-cart'} size={size} color={color} />
             );
           },
         }}/>
         <Tab.Screen name="Profile" component={ProfileScreen} options={{
-          tabBarIcon: () => {
+          tabBarIcon: ({size, focused, color}) => {
             return(
-              <MaterialIcon name={'account'} size={25} color={'#000000'} />
+              <MaterialIcon name={'account'} size={size} color={color} />
             );
           },
         }}/>
