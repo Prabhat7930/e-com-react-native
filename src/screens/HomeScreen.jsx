@@ -1,10 +1,13 @@
-import React from 'react';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, TextInput, FlatList } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { Header } from '../components/Header';
+import { Category } from '../components/Category';
 import AntDesignIcon from 'react-native-vector-icons/AntDesign';
 
+const categories = ['Trending Now', 'All', 'New', 'Men', 'Women'];
 export const HomeScreen = () => {
+  const [selectedCategory, setSelectedCategory] = useState(null);
     return (
       <LinearGradient
         colors={['#FDF0F3', '#FFFBFC']}
@@ -18,6 +21,8 @@ export const HomeScreen = () => {
           </View>
           <TextInput style={styles.searchInput} placeholder="Search" placeholderTextColor={'#C0C0C0'} cursorColor={'ED96E6'}/>
         </View>
+        <FlatList data={categories} renderItem={({item})=><Category item={item} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}/>} keyExtractor={(item) => item} horizontal={true} showsHorizontalScrollIndicator={false}/>
+        {/* <Category /> */}
       </LinearGradient>
     );
 };
@@ -47,5 +52,6 @@ const styles = StyleSheet.create({
   searchInput: {
     flex: 1,
     color: '#000000',
+    paddingHorizontal:10.0,
   },
 });
